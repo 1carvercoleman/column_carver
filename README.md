@@ -8,4 +8,4 @@ Uses the skimage package to detect lines. The target number of columns is specif
 Sums the pixel values across the height of the image to detect the darkest (lowest mean pixel) columns.
 
 ## Method 3: column_carver_derivative.py
-Similar to Method 2, but looks as changes in mean pixels between columns. Will also work if columns are separated by whitespace instead of dark lines. 
+Similar to Method 2, but looks at changes in mean pixels between columns. Will also work if columns are separated by whitespace instead of dark lines. 
