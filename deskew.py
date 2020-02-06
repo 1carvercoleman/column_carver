@@ -91,31 +91,5 @@ for image_file in glob(f'*.jpg'):
     gray = gray[crop:gray2.shape[:2][0] - crop,crop:gray.shape[:2][1] - crop]
     
     # Save image
-    skimage.io.imsave(path + image_file, gray)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    skimage.io.imsave(path + image_file, gray)    
     
