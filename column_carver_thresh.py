@@ -41,7 +41,7 @@ def image_printer (index, col_begin, filename, DEBUG):
     k = col_begin
     
     for i in range((len(final_lines) - 1)):
-        if (abs(final_lines[i] - final_lines[i+1]) > 200):
+        if abs(final_lines[i] - final_lines[i+1]) > 200:
             cropped = gray2[:,final_lines[i] + buffer_left:final_lines[i + 1]-buffer_right]
             try:
                 skimage.io.imsave(path + '{}_col'.format(filename[:-4]) + str(k) + '.jpg', cropped)
@@ -52,13 +52,13 @@ def image_printer (index, col_begin, filename, DEBUG):
                 print('saved')
             k += 1
             firstLine = i + 1
-            if (DEBUG):
+            if DEBUG:
                 skimage.io.imshow(cropped)
                 skimage.io.show()
     
     cropped = gray2[:,final_lines[firstLine] + buffer_left:gray2.shape[:2][1]]
     skimage.io.imsave(path + '{}_col'.format(filename[:-4]) + str(k) + '.jpg', cropped)
-    if (DEBUG):
+    if DEBUG:
         skimage.io.imshow(cropped)
         skimage.io.show()
     print('saved')
@@ -113,7 +113,7 @@ for image_file in glob(f'*.jpg'):
                 num_columns = 0
                 lines = []
                 for i in range((len(final_lines) - 1)):
-                    if (abs(final_lines[i] - final_lines[i+1]) > 100):
+                    if abs(final_lines[i] - final_lines[i+1]) > 100:
                         lines.append(final_lines[i])
                         num_columns += 1
                 vthresh += INCREMENT_VALUE
@@ -124,7 +124,7 @@ for image_file in glob(f'*.jpg'):
                 break
         
         vthresh = 0        
-        if (TARGET_COLS - 1 in total_num_columns):
+        if TARGET_COLS - 1 in total_num_columns:
             index = len(total_num_columns) - 1 - total_num_columns[::-1].index(TARGET_COLS - 1)
             image_printer(index, col_begin = 1, filename, DEBUG)
         else:
